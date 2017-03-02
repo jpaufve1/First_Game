@@ -8,9 +8,7 @@ class Player(pygame.sprite.Sprite):
         #speed vector
         self.vx = 0
         self.vy = 0
-        #top left position
-        self.x = 0
-        self.y = 0
+
         #walking frames
 
         self.image = pygame.image.load('Player.png').convert_alpha()
@@ -18,8 +16,8 @@ class Player(pygame.sprite.Sprite):
         self.left = True
 
     def move(self):
-        self.x += self.vx
-        self.y += self.vy
+        self.rect.x += self.vx
+        self.rect.y += self.vy
 
     def hitcheck(self, level):
         # See if we hit anything
@@ -50,7 +48,6 @@ class Player(pygame.sprite.Sprite):
 
     def draw(self, screen):
         if self.left:
-            screen.blit(self.image, (self.x, self.y))
+            screen.blit(self.image, (self.rect.x, self.rect.y))
         else:
-            screen.blit(pygame.transform.flip(self.image, True, False), (self.x, self.y))
-
+            screen.blit(pygame.transform.flip(self.image, True, False), (self.rect.x, self.rect.y))
