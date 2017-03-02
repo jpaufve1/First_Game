@@ -48,5 +48,5 @@ class Level_01(Level):
     def startup(self, camera, player):
         camera.camera_x = 600
         camera.camera_y = 700
-        player.x = 454
-        player.y = 609
+        player.rect.x = 454
+        player.rect.y = 609
